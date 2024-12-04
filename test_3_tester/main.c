@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:11:39 by inowak--          #+#    #+#             */
-/*   Updated: 2024/11/26 10:30:22 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:38:44 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,36 @@ static long	*ft_tab(char **argv, int count_nb)
 
 int	main(int argc, char **argv)
 {
-	int		count_nb;
-	long	*tab;
+	t_stacks	*stacks;
 
-	if (argc < 2)
+	stacks = malloc(sizeof(t_stacks));
+	if (argc < 2 || !stacks)
 		return (0);
-	if (!(ft_check_digit(argv)))
-		return (0);
-	count_nb = ft_count_nb(argv);
-	if (!count_nb)
+	if (!ft_check_digit(argv))
 	{
-		ft_puterror("Error\nparams false\n");
+		ft_puterror("Error\nInvalid digits\n");
+		free(stacks);
 		return (0);
 	}
-	tab = ft_tab(argv, count_nb);
-	if (!(ft_check_duplicate(tab, count_nb)))
+	stacks->size_a = ft_count_nb(argv);
+	if (stacks->size_a <= 0)
+	{
+		ft_puterror("Error\nInvalid number count\n");
+		free(stacks);
 		return (0);
-	if (!(ft_check_int(tab, count_nb)))
+	}
+	stacks->a = ft_tab(argv, stacks->size_a);
+	stacks->b = malloc(sizeof(long) * stacks->size_a);
+	if (!stacks->a || !stacks->b || !ft_check_duplicate(stacks->a, stacks->size_a) || !ft_check_int(stacks->a, stacks->size_a))
+	{
+		ft_puterror("Error\nInvalid stack initialization\n");
+		free(stacks->a);
+		free(stacks);
 		return (0);
-	else
-		ft_algo(tab, count_nb);
-	free(tab);
+	}
+	ft_algo(stacks);
+	free(stacks->a);
+	free(stacks->b);
+	free(stacks);
 	return (0);
 }

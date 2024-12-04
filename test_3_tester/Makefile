@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 10:50:48 by inowak--          #+#    #+#              #
-#    Updated: 2024/11/30 17:16:52 by marvin           ###   ########.fr        #
+#    Updated: 2024/12/04 14:12:23 by inowak--         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,13 +30,14 @@ PRINTF_FILES = lib/ft_printf/ft_pointer.c\
 				lib/ft_printf/ft_printf_handle.c\
 				lib/ft_printf/ft_printf.c\
 
-SRC = ft_algo_search.c\
+SRC = ft_algo_ptt.c\
+		ft_algo_tools.c\
+		ft_algo_moves_a.c\
+		ft_algo_moves_b.c\
 		ft_algo.c\
 		ft_check_tools.c\
 		ft_check.c\
 		ft_split.c\
-		ft_algo_tools.c\
-		ft_chunks.c\
 		main.c\
 
 
