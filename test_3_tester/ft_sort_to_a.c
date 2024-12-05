@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 12:58:50 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/05 19:24:03 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/05 19:31:58 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,9 @@ void	ft_sort_b_to_a(t_stacks *stacks)
 			while (stacks->b[0] < stacks->a[max] && stacks->b[0] > stacks->a[min])
 			{
 				rb(stacks);
-				if (++safety > stacks->size_b)
-				{
-					fprintf(stderr, "Erreur : Boucle infinie détectée !\n");
-					exit(EXIT_FAILURE);
-				}
+				safety++;
+				if (safety > stacks->size_b)
+					exit(0);
 			}
 		}
 	}
