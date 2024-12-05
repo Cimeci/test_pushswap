@@ -1,0 +1,35 @@
+#menu {
+	padding:8px;
+}
+
+.right {
+	border-radius: 0px 25px 25px 0px / 0px 50px 50px 0px;
+}
+
+.left {
+	border-radius: 25px 0px 0px 25px / 50px 0px 0px 50px;
+}
+
+.right-left {
+	border-radius:	25px 25px 25px 25px / 50px 50px 50px 50px;
+}
+
+.box_settings entry {	
+	font-size: 12px;
+}
+
+.box-entry {
+	padding: 0px;
+}
+
+.frame-text {
+	border-radius: 0px;
+}
+
+#dialog_box button:focus {
+   background-color: red;
+}
+
+* selection {
+	background-color: #881111;
+}

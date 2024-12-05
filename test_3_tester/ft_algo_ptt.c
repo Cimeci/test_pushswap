@@ -1,117 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_algo_search.c                                   :+:      :+:    :+:   */
+/*   ft_algo_ptt.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:32:12 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/04 13:23:19 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/05 12:56:56 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	start_extension_a(long *stack, int index, int size)
+void	push_to_top_stack_a(t_stacks *stacks, int index)
 {
-	int		i;
-	int		j;
-	long	temp;
-
-	i = 0;
-	while (i < index)
+	if (index <= stacks->size_a / 2)
 	{
-		temp = stack[0];
-		j = 0;
-		while (j < size - 1)
-		{
-			stack[j] = stack[j + 1];
-			j++;
-		}
-		stack[size - 1] = temp;
-		ft_printf("ra\n");
-		i++;
+		while (index-- > 0)
+			ra(stacks);
 	}
-}
-
-static void	end_extension_a(long *stack, int index, int size)
-{
-	int		i;
-	int		j;
-	long	temp;
-
-	i = 0;
-	while (i < size - index)
-	{
-		temp = stack[size - 1];
-		j = size - 1;
-		while (j > 0)
-		{
-			stack[j] = stack[j - 1];
-			j--;
-		}
-		stack[0] = temp;
-		ft_printf("rra\n");
-		i++;
-	}
-}
-
-void	push_to_top_stack_a(long *stack, int index, int size)
-{
-	if (index <= size / 2)
-		start_extension_a(stack, index, size);
 	else
-		end_extension_a(stack, index, size);
-}
-
-static void	start_extension_b(long *stack, int index, int size)
-{
-	int		i;
-	int		j;
-	long	temp;
-
-	i = 0;
-	while (i < index)
 	{
-		temp = stack[0];
-		j = 0;
-		while (j < size - 1)
-		{
-			stack[j] = stack[j + 1];
-			j++;
-		}
-		stack[size - 1] = temp;
-		ft_printf("rb\n");
-		i++;
+		while (index++ < stacks->size_a)
+			rra(stacks);
 	}
 }
 
-static void	end_extension_b(long *stack, int index, int size)
+void	push_to_top_stack_b(t_stacks *stacks, int index)
 {
-	int		i;
-	int		j;
-	long	temp;
-
-	i = 0;
-	while (i < size - index)
+	if (index <= stacks->size_b / 2)
 	{
-		temp = stack[size - 1];
-		j = size - 1;
-		while (j > 0)
-		{
-			stack[j] = stack[j - 1];
-			j--;
-		}
-		stack[0] = temp;
-		ft_printf("rrb\n");
-		i++;
+		while (index-- > 0)
+			rb(stacks);
 	}
-}
-
-void	push_to_top_stack_b(long *stack, int index, int size)
-{
-	if (index <= size / 2)
-		start_extension_b(stack, index, size);
 	else
-		end_extension_b(stack, index, size);
+	{
+		while (index++ < stacks->size_b)
+			rrb(stacks);
+	}
 }

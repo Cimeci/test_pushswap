@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 14:00:39 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/04 15:19:19 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/05 17:12:24 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,20 @@ void	pa(t_stacks *stacks)
 
 	if (stacks->size_b <= 0)
 		return ;
+    stacks->size_a++;
 	i = stacks->size_a;
 	while (i > 0)
 	{
 		stacks->a[i] = stacks->a[i - 1];
 		i--;
 	}
-	stacks->a[0] = stacks->b[stacks->size_b - 1];
-	(stacks->size_a)++;
+	stacks->a[0] = stacks->b[0];
+	i = 0;
+	while (i < stacks->size_b - 1)
+	{
+		stacks->b[i] = stacks->b[i + 1];
+		i++;
+	}
 	(stacks->size_b)--;
 	ft_printf("pa\n");
 }

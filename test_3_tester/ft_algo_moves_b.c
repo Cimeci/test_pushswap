@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 14:02:18 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/04 15:19:34 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/05 19:25:27 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	rb(t_stacks *stacks)
 	long	temp;
 	int		i;
 
-	if (stacks->size_b < 2)
+	if (!stacks || !stacks->b || stacks->size_b < 2)
 		return ;
 	temp = stacks->b[0];
 	i = 0;
@@ -41,6 +41,7 @@ void	rb(t_stacks *stacks)
 	stacks->b[stacks->size_b - 1] = temp;
 	ft_printf("rb\n");
 }
+
 
 void	rrb(t_stacks *stacks)
 {
@@ -66,8 +67,14 @@ void	pb(t_stacks *stacks)
 
 	if (stacks->size_a <= 0)
 		return ;
-	stacks->b[stacks->size_b] = stacks->a[0];
-	stacks->size_b++;
+    stacks->size_b++;
+	i = stacks->size_b;
+	while (i > 0)
+	{
+		stacks->b[i] = stacks->b[i - 1];
+		i--;
+	}
+	stacks->b[0] = stacks->a[0];
 	i = 0;
 	while (i < stacks->size_a - 1)
 	{

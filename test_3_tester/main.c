@@ -6,19 +6,17 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:11:39 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/04 13:38:44 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/05 19:14:08 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_puterror(char *str)
+void	ft_puterror(t_stacks *stacks)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		write(2, &str[i++], 1);
+	write(2, "Error\n", 6);
+	free(stacks);
+	exit (0);
 }
 
 static long	*ft_tab(char **argv, int count_nb)
@@ -50,35 +48,37 @@ static long	*ft_tab(char **argv, int count_nb)
 	return (tab);
 }
 
+void	ft_init(char **argv, t_stacks *stacks)
+{
+	if (!ft_check_digit(argv))
+		ft_puterror(stacks);
+	stacks->size_a = ft_count_nb(argv);
+	if (stacks->size_a <= 0)
+		ft_puterror(stacks);
+	stacks->size_b = ft_count_nb(argv);
+	if (stacks->size_b <= 0)
+		ft_puterror(stacks);
+	stacks->a = ft_tab(argv, stacks->size_a);
+	stacks->b = malloc(sizeof(long) * stacks->size_b);
+	if (!stacks->a || !stacks->b || !ft_check_duplicate(stacks->a, stacks->size_a) || !ft_check_int(stacks->a, stacks->size_a))
+	{
+		free(stacks->a);
+		free(stacks->b);
+		ft_puterror(stacks);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
-
+	
 	stacks = malloc(sizeof(t_stacks));
-	if (argc < 2 || !stacks)
-		return (0);
-	if (!ft_check_digit(argv))
+	if (!stacks || argc < 2)
 	{
-		ft_puterror("Error\nInvalid digits\n");
-		free(stacks);
-		return (0);
+		write(2, "Error\n", 6);
+		exit(0);
 	}
-	stacks->size_a = ft_count_nb(argv);
-	if (stacks->size_a <= 0)
-	{
-		ft_puterror("Error\nInvalid number count\n");
-		free(stacks);
-		return (0);
-	}
-	stacks->a = ft_tab(argv, stacks->size_a);
-	stacks->b = malloc(sizeof(long) * stacks->size_a);
-	if (!stacks->a || !stacks->b || !ft_check_duplicate(stacks->a, stacks->size_a) || !ft_check_int(stacks->a, stacks->size_a))
-	{
-		ft_puterror("Error\nInvalid stack initialization\n");
-		free(stacks->a);
-		free(stacks);
-		return (0);
-	}
+	ft_init(argv, stacks);
 	ft_algo(stacks);
 	free(stacks->a);
 	free(stacks->b);
