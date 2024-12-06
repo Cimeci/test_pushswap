@@ -6,7 +6,7 @@
 #    By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 10:50:48 by inowak--          #+#    #+#              #
-#    Updated: 2024/12/05 17:40:55 by inowak--         ###   ########.fr        #
+#    Updated: 2024/12/06 18:21:47 by inowak--         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC = ft_algo_ptt.c\
 		ft_algo_tools.c\
 		ft_algo_moves_a.c\
 		ft_algo_moves_b.c\
+		ft_algo_moves_stacks.c\
 		ft_sort_small.c\
 		ft_sort_to_a.c\
 		ft_sort_to_b.c\

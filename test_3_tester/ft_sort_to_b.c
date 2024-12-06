@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 12:58:15 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/05 17:46:26 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/06 18:18:23 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,15 +101,8 @@ void	ft_sort_a_to_b(t_stacks *stacks)
     {
         index = index_to_change(stacks);
         target = ft_search_target(stacks, index);
-
-        // Aligner A et B pour le mouvement
-        push_to_top_stack_a(stacks, index);
-        push_to_top_stack_b(stacks, target);
-
-        // Pousser l'élément de A vers B
+        check_push_to_top(stacks, index, target);
         pb(stacks);
     }
-
-    // Trier les 3 éléments restants dans A
     sort_three(stacks);
 }
