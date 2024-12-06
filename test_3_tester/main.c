@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:11:39 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/06 16:13:26 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/06 23:53:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static long	*ft_tab(char **argv, int count_nb)
 	k = 0;
 	while (argv[j])
 	{
-		split = ft_split(argv[j], ' ');
+		split = ft_split(argv[j], ' '); 
 		i = 0;
 		while (split[i])
 		{
