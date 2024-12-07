@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_tools.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:41:50 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/06 23:47:10 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/07 09:25:37 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ long	ft_atol(const char *nptr)
 			sign = -1;
 		i++;
 	}
-	while (nptr[i] == '0')
-		i++;
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		nb = nb * 10 + (nptr[i] - '0');
@@ -49,20 +47,14 @@ int	ft_count_nb(char **str)
 	while (str[j])
 	{
 		if (str[j][0] == '\0')
-		{
-			write(2, "Error\n", 6);
-			return (0);
-		}
+			ft_puterror();
 		i = 0;
 		while (str[j][i])
 		{
 			if (str[j][i] != ' ')
 				break ;
 			if (str[j][i + 1] == '\0')
-			{
-				write(2, "Error\n", 6);
-				return (0);
-			}
+				ft_puterror();
 			i++;
 		}
 		count += ft_count_word(str[j], ' ');

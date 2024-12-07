@@ -3,26 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:11:39 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/06 23:53:53 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/07 09:24:04 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_puterror(t_stacks *stacks)
-{
-	write(2, "Error\n", 6);
-	if (stacks->b)
-		free(stacks->b);
-	if (stacks->a)
-		free(stacks->a);
-	if (stacks)
-		free(stacks);
-	exit (0);
-}
 
 static long	*ft_tab(char **argv, int count_nb)
 {
@@ -51,14 +40,6 @@ static long	*ft_tab(char **argv, int count_nb)
 		j++;
 	}
 	return (tab);
-}
-
-void	ft_look_error(char **argv, t_stacks *stacks)
-{
-	if (!ft_check_digit(argv))
-		ft_puterror(stacks);
-	if (!stacks->a  || !stacks->b || !ft_check_duplicate(stacks->a, stacks->size_a) || !ft_check_int(stacks->a, stacks->size_a))
-		ft_puterror(stacks);
 }
 
 int	main(int argc, char **argv)

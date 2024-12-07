@@ -6,7 +6,7 @@
 #    By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 10:50:48 by inowak--          #+#    #+#              #
-#    Updated: 2024/12/06 18:21:47 by inowak--         ###   ########.fr        #
+#    Updated: 2024/12/07 09:29:06 by inowak--         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ SRC = ft_algo_ptt.c\
 		parsing/ft_split.c\
 		main.c\
 		ft_print_stacks.c\
+		ft_error.c\
 
 
 OBJ = $(SRC:.c=.o)

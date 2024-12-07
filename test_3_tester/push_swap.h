@@ -49,12 +49,18 @@ long	ft_atol(const char *nptr);
 // ft_check.c //
 
 int		ft_check_digit(char **argv);
-int		ft_check_int(long *tab, int size);
-int		ft_check_duplicate(long *tab, int size);
+void	ft_check_int(long *tab, int size);
+void	ft_check_duplicate(long *tab, int size);
+void 	ft_check_after_sign(char **argv);
+
+// ft_error.c //
+
+void	ft_puterror();
+void	ft_clean(t_stacks *stacks);
+void	ft_look_error(char **argv, t_stacks *stacks);
 
 // main.c //
 
-void	ft_puterror(t_stacks *stacks);
 
 // ft_algo_moves_a.c //
 
