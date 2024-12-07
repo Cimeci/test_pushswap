@@ -6,13 +6,13 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 17:59:55 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/06 18:23:37 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/07 18:11:37 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void 	rr(t_stacks *stacks)
+void	rr(t_stacks *stacks)
 {
 	long	temp;
 	int		i;

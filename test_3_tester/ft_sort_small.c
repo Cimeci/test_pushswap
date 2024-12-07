@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 12:56:17 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/05 17:24:19 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/07 18:16:53 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	sort_two(t_stacks *stacks)
 
 void	sort_three(t_stacks *stacks)
 {
-	if (stacks->a[0] > stacks->a[1] && stacks->a[1] < stacks->a[2] && stacks->a[0] < stacks->a[2])
+	if (stacks->a[0] > stacks->a[1] && stacks->a[1] < stacks->a[2]
+		&& stacks->a[0] < stacks->a[2])
 		sa(stacks);
 	else if (stacks->a[0] > stacks->a[1] && stacks->a[1] > stacks->a[2])
 	{
@@ -29,7 +30,8 @@ void	sort_three(t_stacks *stacks)
 	}
 	else if (stacks->a[0] > stacks->a[1] && stacks->a[1] < stacks->a[2])
 		ra(stacks);
-	else if (stacks->a[0] < stacks->a[1] && stacks->a[1] > stacks->a[2] && stacks->a[0] < stacks->a[2])
+	else if (stacks->a[0] < stacks->a[1] && stacks->a[1] > stacks->a[2]
+		&& stacks->a[0] < stacks->a[2])
 	{
 		sa(stacks);
 		ra(stacks);

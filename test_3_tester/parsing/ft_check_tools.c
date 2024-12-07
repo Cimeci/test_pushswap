@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:41:50 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/07 09:25:37 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/07 17:26:45 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ int	ft_count_nb(char **str)
 	while (str[j])
 	{
 		if (str[j][0] == '\0')
-			ft_puterror();
+			return (-1);
 		i = 0;
 		while (str[j][i])
 		{
 			if (str[j][i] != ' ')
 				break ;
 			if (str[j][i + 1] == '\0')
-				ft_puterror();
+				return (-1);
 			i++;
 		}
 		count += ft_count_word(str[j], ' ');

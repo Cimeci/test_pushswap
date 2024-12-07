@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 14:00:39 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/06 15:18:09 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/07 18:10:53 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	pa(t_stacks *stacks)
 
 	if (stacks->size_b <= 0)
 		return ;
-    stacks->size_a++;
+	stacks->size_a++;
 	i = stacks->size_a;
 	while (i > 0)
 	{

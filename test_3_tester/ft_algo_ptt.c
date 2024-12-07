@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_algo_ptt.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:32:12 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/06 23:33:19 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/07 18:13:37 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	push_to_top_stack_a(t_stacks *stacks, int index)
 
 static int	count_push_to_top(int size, int index)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (index <= size / 2)
@@ -44,7 +44,7 @@ static int	count_push_to_top(int size, int index)
 	return (count);
 }
 
-static void	apply_rotations(t_stacks *stacks, t_count *count)
+static void	apply_double_rotations(t_stacks *stacks, t_count *count)
 {
 	while (count->ptta > 0 && count->pttb > 0)
 	{
@@ -58,6 +58,11 @@ static void	apply_rotations(t_stacks *stacks, t_count *count)
 		count->ptta++;
 		count->pttb++;
 	}
+}
+
+static void	apply_rotations(t_stacks *stacks, t_count *count)
+{
+	apply_double_rotations(stacks, count);
 	while (count->ptta > 0)
 	{
 		ra(stacks);
@@ -82,7 +87,7 @@ static void	apply_rotations(t_stacks *stacks, t_count *count)
 
 void	check_push_to_top(t_stacks *stacks, int index_a, int index_b)
 {
-	t_count count;
+	t_count	count;
 
 	count.ptta = count_push_to_top(stacks->size_a, index_a);
 	count.pttb = count_push_to_top(stacks->size_b, index_b);

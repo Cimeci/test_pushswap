@@ -6,12 +6,11 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:11:39 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/07 09:24:04 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/07 19:02:03 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 static long	*ft_tab(char **argv, int count_nb)
 {
@@ -29,7 +28,7 @@ static long	*ft_tab(char **argv, int count_nb)
 	k = 0;
 	while (argv[j])
 	{
-		split = ft_split(argv[j], ' '); 
+		split = ft_split(argv[j], ' ');
 		i = 0;
 		while (split[i])
 		{
@@ -42,31 +41,28 @@ static long	*ft_tab(char **argv, int count_nb)
 	return (tab);
 }
 
-int	main(int argc, char **argv)
+void	ft_init(t_stacks *stacks, char **argv)
 {
-	t_stacks	*stacks;
-	
-	stacks = malloc(sizeof(t_stacks));
-	if (!stacks || argc < 2)
-	{
-		write(2, "Error\n", 6);
-		exit(0);
-	}
 	stacks->size_a = ft_count_nb(argv);
+	if (stacks->size_a == -1)
+		ft_clean(stacks);
 	stacks->a = ft_tab(argv, stacks->size_a);
 	if (!stacks->a)
-	{
-		free(stacks);
-		return (0);
-	}
+		ft_clean(stacks);
 	stacks->size_b = 0;
 	stacks->b = malloc(sizeof(long) * stacks->size_a);
 	if (!stacks->b)
-	{
-		free(stacks->a);
-		free(stacks);
-		return (0);
-	}
+		ft_clean(stacks);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stacks	*stacks;
+
+	stacks = malloc(sizeof(t_stacks));
+	if (!stacks || argc < 2)
+		ft_puterror();
+	ft_init(stacks, argv);
 	ft_look_error(argv, stacks);
 	ft_algo(stacks);
 	free(stacks->a);

@@ -23,18 +23,18 @@
 
 typedef struct s_stacks
 {
-	int size_a;
-	int size_b;
-	long *a;
-	long *b;
-} t_stacks;
+	int		size_a;
+	int		size_b;
+	long	*a;
+	long	*b;
+}			t_stacks;
 
 typedef struct s_count
 {
-	int pttb;
-	int ptta;
-	int count;
-}	t_count;
+	int	pttb;
+	int	ptta;
+	int	count;
+}		t_count;
 
 // ft_split.c //
 
@@ -49,18 +49,15 @@ long	ft_atol(const char *nptr);
 // ft_check.c //
 
 int		ft_check_digit(char **argv);
-void	ft_check_int(long *tab, int size);
-void	ft_check_duplicate(long *tab, int size);
-void 	ft_check_after_sign(char **argv);
+int		ft_check_int(long *tab, int size);
+int		ft_check_duplicate(long *tab, int size);
+int		ft_check_after_sign(char **argv);
 
 // ft_error.c //
 
-void	ft_puterror();
+void	ft_puterror(void);
 void	ft_clean(t_stacks *stacks);
 void	ft_look_error(char **argv, t_stacks *stacks);
-
-// main.c //
-
 
 // ft_algo_moves_a.c //
 
@@ -76,10 +73,9 @@ void	rb(t_stacks *stacks);
 void	rrb(t_stacks *stacks);
 void	pb(t_stacks *stacks);
 
-
 // ft_algo_moves_satcks.c //
 
-void 	rr(t_stacks *stacks);
+void	rr(t_stacks *stacks);
 void	rrr(t_stacks *stacks);
 
 // ft_algo_tools.c //
@@ -92,7 +88,7 @@ int		ft_search_max_for_b(t_stacks *stacks);
 // ft_algo_ptt.c //
 
 void	push_to_top_stack_a(t_stacks *stacks, int index);
-void    check_push_to_top(t_stacks *stacks, int index_a, int index_b);
+void	check_push_to_top(t_stacks *stacks, int index_a, int index_b);
 
 // ft_algo.c //
 
@@ -113,10 +109,8 @@ void	ft_sort_a_to_b(t_stacks *stacks);
 void	sort_two(t_stacks *stacks);
 void	sort_three(t_stacks *stacks);
 
-
 /// ft_print_stacks.c ///
 
-void printf_stack(t_stacks *stacks);
-
+// void	printf_stack(t_stacks *stacks);
 
 #endif

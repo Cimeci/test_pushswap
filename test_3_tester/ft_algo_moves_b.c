@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 14:02:18 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/05 19:32:13 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/07 18:11:18 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void	rb(t_stacks *stacks)
 	ft_printf("rb\n");
 }
 
-
-
 void	rrb(t_stacks *stacks)
 {
 	long	temp;
@@ -68,7 +66,7 @@ void	pb(t_stacks *stacks)
 
 	if (stacks->size_a <= 0)
 		return ;
-    stacks->size_b++;
+	stacks->size_b++;
 	i = stacks->size_b;
 	while (i > 0)
 	{

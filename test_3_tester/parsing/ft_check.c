@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 11:27:59 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/07 09:28:36 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/07 18:10:10 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	ft_error_check_digit(char c)
 {
 	if ((c < '0' || c > '9'))
-		ft_puterror();
+		return (0);
 	return (1);
 }
 
@@ -46,7 +46,7 @@ int	ft_check_digit(char **argv)
 	return (1);
 }
 
-void	ft_check_int(long *tab, int size)
+int	ft_check_int(long *tab, int size)
 {
 	int	j;
 
@@ -54,15 +54,13 @@ void	ft_check_int(long *tab, int size)
 	while (j < size)
 	{
 		if (tab[j] > 2147483647 || tab[j] < -2147483648)
-		{
-			free(tab);
-			ft_puterror();
-		}
+			return (0);
 		j++;
 	}
+	return (1);
 }
 
-void	ft_check_duplicate(long *tab, int size)
+int	ft_check_duplicate(long *tab, int size)
 {
 	int	i;
 	int	j;
@@ -74,17 +72,18 @@ void	ft_check_duplicate(long *tab, int size)
 		while (j + i < size)
 		{
 			if (tab[j] == tab[j + i])
-				ft_puterror();
+				return (0);
 			i++;
 		}
 		j++;
 	}
+	return (1);
 }
 
-void ft_check_after_sign(char **argv)
+int	ft_check_after_sign(char **argv)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 1;
@@ -95,11 +94,13 @@ void ft_check_after_sign(char **argv)
 		{
 			if (argv[j][i] == '+' || argv[j][i] == '-')
 			{
-				if ((argv[j][i + 1] < '0' && argv[j][i + 1] > '9') || argv[j][i- 1] != ' ')
-					ft_puterror();
+				if ((argv[j][i + 1] < '0' && argv[j][i + 1] > '9')
+					|| argv[j][i - 1] != ' ')
+					return (0);
 			}
 			i++;
 		}
-		j++;	
+		j++;
 	}
+	return (1);
 }

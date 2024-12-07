@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 09:21:36 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/07 09:27:43 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/07 18:15:53 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,20 @@ void	ft_clean(t_stacks *stacks)
 	ft_puterror();
 }
 
-void	ft_puterror()
+void	ft_puterror(void)
 {
-    write(2, "Error\n", 6);
-    exit(0);
+	write(2, "Error\n", 6);
+	exit(0);
 }
 
 void	ft_look_error(char **argv, t_stacks *stacks)
 {
-	ft_check_after_sign(argv);
-	if (!ft_check_digit(argv))
+	if (!ft_check_digit(argv) || !ft_check_after_sign(argv))
 		ft_clean(stacks);
-	ft_check_duplicate(stacks->a, stacks->size_a);
-	ft_check_int(stacks->a, stacks->size_a);
-	if (!stacks->a  || !stacks->b)
+	if (!(ft_check_duplicate(stacks->a, stacks->size_a)))
+		ft_clean(stacks);
+	if (!(ft_check_int(stacks->a, stacks->size_a)))
+		ft_clean(stacks);
+	if (!stacks->a || !stacks->b)
 		ft_clean(stacks);
 }
