@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_moves_a_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 14:00:39 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/08 18:04:04 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/09 17:51:57 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa_bonus(t_stacks *stacks)
 {
 	long	temp;
 
-	if (!stacks->a)
+	if (stacks->size_a < 2)
 		return ;
 	temp = stacks->a[0];
 	stacks->a[0] = stacks->a[1];
@@ -61,7 +61,7 @@ void	pa_bonus(t_stacks *stacks)
 {
 	int	i;
 
-	if (stacks->size_b <= 0)
+	if (stacks->size_b < 2)
 		return ;
 	stacks->size_a++;
 	i = stacks->size_a;

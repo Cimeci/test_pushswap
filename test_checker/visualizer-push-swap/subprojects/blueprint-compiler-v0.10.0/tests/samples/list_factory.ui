@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkListView">
+    <property name="factory">
+      <object class="GtkBuilderListItemFactory" id="list_item_factory">
+        <property name="bytes"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GtkListItem">
+    <property name="child">
+      <object class="GtkLabel">
+        <binding name="label">
+          <lookup name="name" type="MyObject">
+            <lookup name="item" type="GtkListItem">
+              <constant>GtkListItem</constant>
+            </lookup>
+          </lookup>
+        </binding>
+      </object>
+    </property>
+  </template>
+</interface>]]></property>
+      </object>
+    </property>
+  </object>
+</interface>

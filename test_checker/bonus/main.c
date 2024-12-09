@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:11:39 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/08 01:31:07 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/09 11:03:56 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ void	ft_init_bonus(t_stacks *stacks, char **argv)
 {
 	stacks->size_a = ft_count_nb(argv);
 	if (stacks->size_a == -1)
-		ft_clean(stacks);
+		ft_clean(stacks, 1);
 	stacks->a = ft_tab_bonus(argv, stacks->size_a);
 	if (!stacks->a)
-		ft_clean(stacks);
+		ft_clean(stacks, 1);
 	stacks->size_b = 0;
 	stacks->b = malloc(sizeof(long) * stacks->size_a);
 	if (!stacks->b)
-		ft_clean(stacks);
+		ft_clean(stacks, 1);
 }
 
 int	main(int argc, char **argv)

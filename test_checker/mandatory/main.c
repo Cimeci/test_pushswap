@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:11:39 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/08 00:54:13 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/09 10:49:05 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ void	ft_init(t_stacks *stacks, char **argv)
 {
 	stacks->size_a = ft_count_nb(argv);
 	if (stacks->size_a == -1)
-		ft_clean(stacks);
+		ft_clean(stacks, 1);
 	stacks->a = ft_tab(argv, stacks->size_a);
 	if (!stacks->a)
-		ft_clean(stacks);
+		ft_clean(stacks, 1);
 	stacks->size_b = 0;
 	stacks->b = malloc(sizeof(long) * stacks->size_a);
 	if (!stacks->b)
-		ft_clean(stacks);
+		ft_clean(stacks, 1);
 }
 
 int	main(int argc, char **argv)
@@ -64,6 +64,8 @@ int	main(int argc, char **argv)
 		ft_puterror();
 	ft_init(stacks, argv);
 	ft_look_error(argv, stacks);
+	if (!ft_is_sort(stacks))
+		ft_clean(stacks, 0);
 	ft_algo(stacks);
 	free(stacks->a);
 	if (stacks->b)

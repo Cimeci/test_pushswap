@@ -37,23 +37,17 @@ typedef struct s_moves
 }			t_moves;
 
 /////////////////////////////
-//        ft_tools.c       //
-/////////////////////////////
-
-long	*sort_long_tab(long *tab, int size);
-int		ft_strcmp(const char *s1, const char *s2);
-
-/////////////////////////////
 //       ft_checker.c      //
 /////////////////////////////
 
+int		ft_check_information(char *line, t_moves *moves);
 void	ft_checker(t_stacks *stacks);
 
 /////////////////////////////
 //    ft_modification.c    //
 /////////////////////////////
 
-void	apply_modification(char *line, t_stacks *stacks)
+int	apply_modification(char *line, t_stacks *stacks);
 
 /////////////////////////////
 //    ft_moves_a_bonus.c   //

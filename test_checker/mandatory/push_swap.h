@@ -38,6 +38,17 @@ typedef struct s_count
 size_t	ft_count_word(const char *s, char c);
 char	**ft_split(char const *s, char c);
 
+/////////////////////////////
+//        ft_tools.c       //
+/////////////////////////////
+
+long	*sort_long_tab(long *tab, int size);
+int		ft_strcmp(const char *s1, const char *s2);
+
+// ft_check_sort.c //
+
+int    ft_is_sort(t_stacks *stacks);
+
 // ft_check_tools.c //
 
 int		ft_count_nb(char **str);
@@ -53,7 +64,7 @@ int		ft_check_after_sign(char **argv);
 // ft_error.c //
 
 void	ft_puterror(void);
-void	ft_clean(t_stacks *stacks);
+void	ft_clean(t_stacks *stacks, int info);
 void	ft_look_error(char **argv, t_stacks *stacks);
 
 // ft_moves_a.c //

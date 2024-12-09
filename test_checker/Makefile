@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/26 10:50:48 by inowak--          #+#    #+#              #
-#    Updated: 2024/12/08 21:17:44 by marvin           ###   ########.fr        #
+#    Updated: 2024/12/09 10:42:40 by inowak--         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,9 @@ PRINTF_FILES = lib/ft_printf/ft_pointer.c\
 GNL_FILES = lib/gnl/get_next_line_utils.c\
 			lib/gnl/get_next_line.c\
 
+LIBFT_FILES = lib/ft_split.c\
+				lib/ft_tools.c\
+
 SRC = mandatory/moves/ft_moves_a.c\
 		mandatory/moves/ft_moves_b.c\
 		mandatory/moves/ft_moves_double.c\
@@ -46,12 +49,11 @@ SRC = mandatory/moves/ft_moves_a.c\
 		mandatory/error/ft_error.c\
 		mandatory/parsing/ft_check_tools.c\
 		mandatory/parsing/ft_check.c\
-		mandatory/parsing/ft_split.c\
+		mandatory/parsing/ft_check_sort.c\
 
 SRC_MAIN = mandatory/main.c\
 
 SRC_BONUS = bonus/ft_checker.c\
-			bonus/ft_tools.c\
 			bonus/main.c\
 			bonus/ft_modification.c\
 			bonus/moves_bonus/ft_moves_a_bonus.c\
@@ -60,7 +62,7 @@ SRC_BONUS = bonus/ft_checker.c\
 
 OBJ = $(SRC:.c=.o)
 OBJ_MAIN = $(SRC_MAIN:.c=.o)
-OBJ_LIB = $(PRINTF_FILES:.c=.o) $(GNL_FILES:.c=.o)
+OBJ_LIB = $(PRINTF_FILES:.c=.o) $(GNL_FILES:.c=.o) $(LIBFT_FILES:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 all: $(NAME)

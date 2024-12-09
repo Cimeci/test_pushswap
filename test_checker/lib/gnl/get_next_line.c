@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:35:18 by inowak--          #+#    #+#             */
-/*   Updated: 2024/10/29 16:33:11 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:22:08 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,11 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	stash = ft_after_line(stash, '\n');
+	if (stash[0] == '\0')
+	{
+		free(stash);
+		stash = NULL;
+	}
 	if (ft_strlen(line) > 0)
 		return (line);
 	free(line);
