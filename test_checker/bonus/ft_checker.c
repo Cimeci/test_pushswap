@@ -100,24 +100,24 @@ void	ft_checker(t_stacks *stacks)
 	sorted_tab = sort_long_tab(stacks->a, stacks->size_a);
 	if (!sorted_tab)
 		return ;
-	i = 0;
-	while (i < size)
-	{
-		printf("%ld | %ld\n", stacks->a[i], sorted_tab[i]);
-		i++;
-	}
-	printf("\n");
+	// i = 0;
+	// while (i < size)
+	// {
+	// 	printf("%ld | %ld | %ld\n", stacks->a[i], stacks->b[i], sorted_tab[i]);
+	// 	i++;
+	// }
+	// printf("\n");
 	if(!(ft_take_information(stacks)))
 	{
 		free(sorted_tab);
 		ft_clean(stacks, 1);
 	}
-	i = 0;
-	while (i < size)
-	{
-		printf("%ld | %ld\n", stacks->a[i], sorted_tab[i]);
-		i++;
-	}
+	// i = 0;
+	// while (i < size)
+	// {
+	// 	printf("%ld | %ld | %ld\n", stacks->a[i], stacks->b[i], sorted_tab[i]);
+	// 	i++;
+	// }
 	i = 0;
 	while (i < size && stacks->a[i] == sorted_tab[i])
 		i++;

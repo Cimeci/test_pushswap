@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:11:39 by inowak--          #+#    #+#             */
-/*   Updated: 2024/12/09 11:03:56 by inowak--         ###   ########.fr       */
+/*   Updated: 2024/12/10 00:01:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ int	main(int argc, char **argv)
 {
 	t_stacks	*stacks;
 
+	if (argc < 2)
+		return (0);
 	stacks = malloc(sizeof(t_stacks));
-	if (!stacks || argc < 2)
+	if (!stacks)
 		ft_puterror();
 	ft_init_bonus(stacks, argv);
 	ft_look_error(argv, stacks);

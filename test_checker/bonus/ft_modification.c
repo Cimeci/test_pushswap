@@ -39,24 +39,24 @@ static void	apply_modif_double(char *line, t_stacks *stacks, t_moves *moves)
 
 static void	apply_modif_a(char *line, t_stacks *stacks, t_moves *moves)
 {
-	if(ft_strcmp(line, moves->ra))
+	if (ft_strcmp(line, moves->ra) == 0)
 		ra_bonus(stacks);
-	else if (ft_strcmp(line, moves->rra))
+	else if (ft_strcmp(line, moves->rra) == 0)
 		rra_bonus(stacks);
-	else if (ft_strcmp(line, moves->sa))
+	else if (ft_strcmp(line, moves->sa) == 0)
 		sa_bonus(stacks);
-	else if (ft_strcmp(line, moves->pa))
+	else if (ft_strcmp(line, moves->pa) == 0)
 		pa_bonus(stacks);
 }
 static void	apply_modif_b(char *line, t_stacks *stacks, t_moves *moves)
 {
-	if(ft_strcmp(line, moves->rb))
+	if(ft_strcmp(line, moves->rb) == 0)
 		rb_bonus(stacks);
-	else if (ft_strcmp(line, moves->rrb))
+	else if (ft_strcmp(line, moves->rrb) == 0)
 		rrb_bonus(stacks);
-	else if (ft_strcmp(line, moves->sb))
+	else if (ft_strcmp(line, moves->sb) == 0)
 		sb_bonus(stacks);
-	else if (ft_strcmp(line, moves->pb))
+	else if (ft_strcmp(line, moves->pb) == 0)
 		pb_bonus(stacks);
 }
 
@@ -77,13 +77,6 @@ int	apply_modification(char *line, t_stacks *stacks)
 	}
 	apply_modif_a(line, stacks, moves);
 	apply_modif_b(line, stacks, moves);
-	int i = 0;
-	while (i < stacks->size_a)
-	{
-		printf("%ld\n", stacks->a[i]);
-		i++;
-	}
-	printf("\n");
 	apply_modif_double(line, stacks, moves);
 	free(moves);
 	return (1);
